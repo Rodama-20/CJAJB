@@ -24,14 +24,14 @@ class UserController extends Controller
     public function store(Request $request): Response
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|unique:users',
             'password' => 'required|min:8',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
@@ -52,14 +52,14 @@ class UserController extends Controller
     public function update(Request $request, User $user): Response
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email',
             'password' => 'required|min:8',
         ]);
 
         $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
