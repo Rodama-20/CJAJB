@@ -44,13 +44,7 @@ jobs:
       run: |
         php artisan migrate
         vendor/bin/phpunit
-    - name: Test report
-      uses: dorny/test-reporter@v1
-      if: ${{ always() }}
-      with:
-        name: Test report
-        path: ./api/report.xml
-        reporter: jest-junit
+
 
   notify:
     name: Notify Discord
