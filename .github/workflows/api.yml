@@ -50,6 +50,7 @@ jobs:
       with:
         name: Test report
         path: ./report.xml
+        reporter: jest-junit
 
   notify:
     name: Notify Discord
