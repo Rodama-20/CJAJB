@@ -13,9 +13,9 @@ class AuthController extends Controller
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         $out->writeln('Registering');
         $this->validate($request, [
-            'name'     => 'required|max:255',
-            'email'    => 'required|email|unique:users',
-            'password' => 'required|min:8',
+            'name'                  => 'required|max:255',
+            'email'                 => 'required|email|unique:users',
+            'password'              => 'required|min:8',
             'password_confirmation' => 'required|same:password',
         ]);
         $out->writeln('Validated');
@@ -27,7 +27,7 @@ class AuthController extends Controller
         $out->writeln('Created');
 
         return response($user + [
-            'token' => $user->createToken("API TOKEN")->plainTextToken
+            'token' => $user->createToken('API TOKEN')->plainTextToken,
         ], 201);
     }
 
@@ -44,6 +44,7 @@ class AuthController extends Controller
         }
         $user = User::where('email', $request->email)->first();
         $token = $user->createToken('token')->plainTextToken;
+
         return response([
             'token' => $token,
             'name'  => $user->name,
