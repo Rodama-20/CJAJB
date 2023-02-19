@@ -24,13 +24,13 @@ class AthleteController extends Controller
     public function store(Request $request): Response
     {
         $this->validate($request, [
-            'first_name' => 'required|max:255',
-            'last_name'  => 'required|max:255',
-            'birth_date' => 'required|date|before:today',
-            'is_men' => 'required|boolean',
+            'first_name'  => 'required|max:255',
+            'last_name'   => 'required|max:255',
+            'birth_date'  => 'required|date|before:today',
+            'is_men'      => 'required|boolean',
             'nationality' => 'required|max:3',
-            'email' => 'required|email|unique:athletes',
-            'club_id' => 'required|exists:clubs,id',
+            'email'       => 'required|email|unique:athletes',
+            'club_id'     => 'required|exists:clubs,id',
         ]);
 
         $athlete = Athlete::create($request->all());
@@ -54,13 +54,13 @@ class AthleteController extends Controller
     public function update(Request $request, string $id): Response
     {
         $this->validate($request, [
-            'first_name' => 'required|max:255',
-            'last_name'  => 'required|max:255',
-            'birth_date' => 'required|date|before:today',
-            'is_men' => 'required|boolean',
+            'first_name'  => 'required|max:255',
+            'last_name'   => 'required|max:255',
+            'birth_date'  => 'required|date|before:today',
+            'is_men'      => 'required|boolean',
             'nationality' => 'required|max:3',
-            'email' => 'required|email|unique:athletes',
-            'club_id' => 'required|exists:clubs,id',
+            'email'       => 'required|email|unique:athletes',
+            'club_id'     => 'required|exists:clubs,id',
         ]);
         $athlete = Athlete::findOrFail($id);
         $athlete->update($request->all());
