@@ -15,9 +15,9 @@ return new class() extends Migration {
             $table->unsignedInteger('fsg_id')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('category');
+            $table->date('birth_date');
             $table->boolean('is_men');
-            $table->string('nationality');
+            $table->string('nationality', 3);
             $table->string('email')->unique();
             $table->timestamps();
         });

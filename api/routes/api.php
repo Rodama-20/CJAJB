@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClubController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 });
+
+Route::apiResource('clubs', ClubController::class);
+Route::apiResource('athletes', AthleteController::class);
