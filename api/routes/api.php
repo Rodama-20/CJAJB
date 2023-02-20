@@ -3,6 +3,7 @@
 use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\DisciplineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::apiResource('clubs', ClubController::class);
 Route::apiResource('athletes', AthleteController::class);
+Route::apiResource('disciplines', DisciplineController::class);

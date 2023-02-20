@@ -23,4 +23,8 @@ class Athlete extends Model
     {
         return $this->belongsTo(Club::class);
     }
+
+    public function records(){
+        return $this->belongsToMany(Discipline::class)->withPivot('pb', 'pb_date', 'pb_event', 'sb', 'sb_date', 'sb_event');
+    }
 }
