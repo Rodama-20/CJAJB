@@ -13,9 +13,9 @@ class DisciplineController extends Controller
      */
     public function index(): Response
     {
-        $discipline = Discipline::all();
+        $disciplines = Discipline::all();
 
-        return response($discipline, 200);
+        return response($disciplines, 200);
     }
 
     /**
