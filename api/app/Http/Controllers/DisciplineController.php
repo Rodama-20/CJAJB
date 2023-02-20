@@ -24,13 +24,13 @@ class DisciplineController extends Controller
     public function store(Request $request): Response
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'order' => 'required|integer',
-            'heat_size' => 'required|integer',
-            'relay_size' => 'required|integer',
-            'call_time' => 'required|date',
+            'name'         => 'required|max:255',
+            'order'        => 'required|integer',
+            'heat_size'    => 'required|integer',
+            'relay_size'   => 'required|integer',
+            'call_time'    => 'required|date',
             'meeting_time' => 'required|date',
-            'length' => 'required|integer',
+            'length'       => 'required|integer',
         ]);
 
         $discipline = Discipline::create($request->all());
@@ -54,13 +54,13 @@ class DisciplineController extends Controller
     public function update(Request $request, string $id): Response
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'order' => 'required|integer',
-            'heat_size' => 'required|integer',
-            'relay_size' => 'required|integer',
-            'call_time' => 'required|date',
+            'name'         => 'required|max:255',
+            'order'        => 'required|integer',
+            'heat_size'    => 'required|integer',
+            'relay_size'   => 'required|integer',
+            'call_time'    => 'required|date',
             'meeting_time' => 'required|date',
-            'length' => 'required|integer',
+            'length'       => 'required|integer',
         ]);
 
         $discipline = Discipline::findOrFail($id);
