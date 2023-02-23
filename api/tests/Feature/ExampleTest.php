@@ -12,8 +12,8 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/docs'); // the only web route in the application
+        $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(301); // 301 is the status code for a permanent redirect as defined in api\routes\web.php
     }
 }
